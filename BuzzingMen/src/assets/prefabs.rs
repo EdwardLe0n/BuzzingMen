@@ -51,6 +51,22 @@ pub fn comb () -> Entity<Component> {
 
 }
 
+pub fn rot_comb (some_val : f32 , some_pos : Position) -> Entity<Component> {
+
+    let mut ent = Entity::new("comb".to_string(), vec![]);
+
+    ent.add_component(SpriteComponent::new_component("comb".to_string()));
+    ent.add_component(MoveComponent::new(2));
+
+    let mut orb = OrbitComponent::new(some_val);
+    orb.orbit_position = some_pos;
+
+    ent.add_component(Component::Orbit(orb));
+
+    return ent;
+
+}
+
 pub fn title() -> Entity<Component> {
     let mut ent = Entity::new("title".to_string(), vec![]);
     ent.transform.nudge_x(10);
