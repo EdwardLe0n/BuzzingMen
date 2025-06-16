@@ -1,0 +1,8 @@
+name = "BuzzingMen"
+version = "0.1.0"
+description = "Random ah title screen"
+authors = ["Edward Leon -> [I Got Boredddd]"]
+
+[canvas]
+width = 256
+height = 144
