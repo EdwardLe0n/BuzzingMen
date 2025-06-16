@@ -6,9 +6,9 @@ use super::super::{component::Component, transform::Transform, border::Border};
 
 #[derive(Debug, Clone, PartialEq, BorshSerialize, BorshDeserialize)]
 pub struct RectangleComponent {
-    transform: Transform, 
-    color: u32, 
-    border: Border
+    pub transform: Transform, 
+    pub color: u32, 
+    pub border: Border
 }
 
 impl RectangleComponent {
@@ -43,7 +43,7 @@ impl RectangleComponent {
         rect!(
             x = self.transform.get_x() + transform.get_x(),
             y = self.transform.get_y() + transform.get_y(),
-            w = self.transform.get_width() as f32 * self.transform.get_scale_x() * transform.get_scale_y(),
+            w = self.transform.get_width() as f32 * self.transform.get_scale_x() * transform.get_scale_x(),
             h = self.transform.get_height() as f32 * self.transform.get_scale_y() * transform.get_scale_y(),
             color = self.color,
             rotation = self.transform.get_rotation() + transform.get_rotation(),

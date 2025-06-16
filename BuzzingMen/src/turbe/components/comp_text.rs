@@ -28,13 +28,15 @@ impl TextComponent {
 
         // log!("in text render");
 
-        text!(
-            "test",
-            x = 0,
-            y = 0,
-            color = 0x000000ff,
-            font = "large"
-        );
+        // text!(&self.text);
+
+        // text!(
+        //     "test",
+        //     x = 0,
+        //     y = 0,
+        //     color = 0x000000ff,
+        //     font = "large"
+        // );
 
         // text!(
         //     &self.text,

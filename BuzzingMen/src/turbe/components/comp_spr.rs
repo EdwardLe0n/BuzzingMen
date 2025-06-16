@@ -6,17 +6,32 @@ use super::super::{component::Component, transform::Transform, flip::Flip};
 
 #[derive(Debug, Clone, PartialEq, BorshSerialize, BorshDeserialize)]
 pub struct SpriteComponent {
-    name: String, 
-    transform: Transform,
-    color: u32, 
-    opacity: f32, 
-    flip_factor: Flip, 
-    frame: usize
+    pub name: String, 
+    pub transform: Transform,
+    pub color: u32, 
+    pub opacity: f32, 
+    pub flip_factor: Flip, 
+    pub frame: usize
 }
 
 impl SpriteComponent {
     
-    pub fn new(name : String) -> Component {
+    pub fn new(name : String) -> SpriteComponent {
+
+        let spr = SpriteComponent {
+            name : name,
+            transform : Transform::new(),
+            color : 0xffffffff,
+            opacity : 1.0,
+            flip_factor : Flip::new(),
+            frame : 0
+        };
+
+        return spr;
+
+    }
+
+    pub fn new_component(name : String) -> Component {
 
         let spr = SpriteComponent {
             name : name,
@@ -46,8 +61,8 @@ impl SpriteComponent {
             color = self.color,
             opacity = self.opacity,
             rotation = self.transform.get_rotation() + transform.get_rotation(),
-            scale_x = self.transform.get_scale_x(),
-            scale_y = self.transform.get_scale_y(),
+            scale_x = self.transform.get_scale_x() * transform.get_scale_x(),
+            scale_y = self.transform.get_scale_y() * transform.get_scale_y(),
             flip_x = self.flip_factor.get_x(),
             flip_y = self.flip_factor.get_y()
         )
