@@ -3,6 +3,7 @@ use std::default;
 use turbo::prelude::*;
 
 use crate::turbe::components::comp_move::MoveComponent;
+use crate::turbe::components::comp_orbit::OrbitComponent;
 use crate::turbe::components::{comp_rect, comp_spr, comp_text};
 use crate::turbe::transform::{self, Transform};
 use comp_rect::RectangleComponent;
@@ -33,7 +34,8 @@ pub enum Component {
     Rectangle ( RectangleComponent ),
     Text ( TextComponent ),
     Sprite ( SpriteComponent ),
-    Move ( MoveComponent )
+    Move ( MoveComponent ),
+    Orbit ( OrbitComponent )
 }
 
 impl Component {
@@ -59,6 +61,9 @@ impl ComponentLifecycle for Component {
         match self {
             Self::Move( move_component ) => {
                 move_component.update(&mut ent.transform);
+            },
+            Self::Orbit(orbit_component) => {
+                orbit_component.update(&mut ent.transform);
             },
             default => {}            
         }

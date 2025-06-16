@@ -1,6 +1,6 @@
 use std::char::CharTryFromError;
 
-use crate::turbe;
+use crate::turbe::{self, components::comp_orbit::OrbitComponent, position::Position};
 use turbe::{entity::Entity, component::{Component, ComponentLifecycle}, border::Border};
 
 use turbe::components::{comp_rect::RectangleComponent, comp_spr::SpriteComponent, comp_text::TextComponent, comp_move::MoveComponent};
@@ -200,6 +200,23 @@ pub fn exitButton() -> Entity<Component> {
     spr.transform.nudge_y(3);
 
     ent.add_component(Component::Sprite(spr));
+
+    return ent;
+
+}
+
+pub fn bee(some_pos : Position, some_val : u32) -> Entity<Component> {
+
+    let mut ent = Entity::new("Bee".to_string(), vec![]);
+    ent.set_layer(1);
+
+    let mut spr = SpriteComponent::new("bee".to_string());
+
+    ent.add_component(Component::Sprite(spr));
+
+    let mut orb = OrbitComponent::new(some_val as f32);
+    orb.orbit_position = some_pos;
+    ent.add_component(Component::Orbit(orb));
 
     return ent;
 

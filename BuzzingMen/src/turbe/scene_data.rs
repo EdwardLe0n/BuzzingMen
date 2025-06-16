@@ -3,6 +3,7 @@ use std::collections::VecDeque;
 
 use crate::turbe::component::{Component, ComponentLifecycle};
 use crate::assets::prefabs;
+use crate::turbe::position::Position;
 
 use super::entity::Entity;
 
@@ -38,6 +39,17 @@ pub fn make_title_scene () -> VecDeque<Entity<Component>> {
     ent_vec.push_front(prefabs::optionsButton());
     ent_vec.push_front(prefabs::creditsButton());
     ent_vec.push_front(prefabs::exitButton());
+
+    for i in 1..(20 + rand()%20) {
+
+        let some_pos = Position{ 
+            x: (1 + (rand() % 255)) as i32 , y: (1 + (rand() % 255)) as i32, rotation : 0
+        };
+        let some_val : u32 = 5 + rand()%40;
+
+        ent_vec.push_front(prefabs::bee(some_pos, some_val));
+
+    }
 
     let mut ent = prefabs::comb();
 
