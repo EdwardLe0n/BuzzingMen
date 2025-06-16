@@ -25,13 +25,25 @@ impl TextComponent {
 impl TextComponent {
 
     pub fn render(&self) {
+
+        // log!("in text render");
+
         text!(
-            &self.text,
-            x = self.position.get_x(),
-            y = self.position.get_y(),
-            color = self.color,
-            font = &self.font
-        )
+            "test",
+            x = 0,
+            y = 0,
+            color = 0x000000ff,
+            font = "large"
+        );
+
+        // text!(
+        //     &self.text,
+        //     x = self.position.get_x(),
+        //     y = self.position.get_y(),
+        //     color = self.color,
+        //     font = &self.font
+        // )
+
     }
 
 }

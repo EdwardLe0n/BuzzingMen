@@ -89,3 +89,14 @@ impl Transform {
 }
 
 // Other
+
+impl Transform {
+    pub fn nudge_x(&mut self, some_i32 : i32) {
+        self.position.nudge_x(some_i32);
+    }
+    pub fn nudge_y(&mut self, some_i32 : i32) {
+        self.position.nudge_y(some_i32);
+    }
+}
+
+// Other other 

@@ -6,9 +6,8 @@ use turbe::components::{comp_rect::RectangleComponent, comp_spr::SpriteComponent
 pub fn new_text () -> Entity<Component> {
 
     let mut ent = Entity::new("some text".to_string(), vec![]);
-    ent.set_layer(10);
 
-    ent.add_component(TextComponent::new("some text".to_string()));
+    ent.add_component(TextComponent::new("Buzzing Man".to_string()));
 
     return ent;
 
@@ -34,6 +33,17 @@ pub fn new_spr () -> Entity<Component> {
     ent.transform.set_x(100);
 
     ent.add_component(SpriteComponent::new("smile".to_string()));
+
+    return ent;
+
+}
+
+pub fn comb () -> Entity<Component> {
+
+    let mut ent = Entity::new("comb".to_string(), vec![]);
+
+    ent.add_component(SpriteComponent::new("comb".to_string()));
+    ent.add_component(MoveComponent::new(2));
 
     return ent;
 
