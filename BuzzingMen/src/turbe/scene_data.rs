@@ -43,7 +43,7 @@ pub fn make_title_scene () -> VecDeque<Entity<Component>> {
     for i in 1..(20 + rand()%20) {
 
         let some_pos = Position{ 
-            x: (1 + (rand() % 255)) as i32 , y: (1 + (rand() % 255)) as i32, rotation : 0
+            x: ((1 + (rand() % 280)) as i32 - 10), y: ((1 + (rand() % 280)) as i32 - 10), rotation : 0
         };
         let some_val : u32 = 5 + rand()%40;
 

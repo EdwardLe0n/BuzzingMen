@@ -138,6 +138,8 @@ impl GameState {
             }
         }
 
+        text!("TEST");
+
     }
 
 }
