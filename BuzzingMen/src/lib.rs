@@ -11,6 +11,7 @@ use scene_data::SceneData;
 mod assets;
 use assets::prefabs;
 
+use turbo::canvas::utils::text;
 use turbo::{canvas::rect::Rectangle, prelude::*};
 
 use crate::turbe::scene_data::Scenes;
@@ -31,7 +32,7 @@ impl GameState {
         let b_tree = Vec::new();
         let render_l = Vec::new();
 
-        Self {scene_data : SceneData { active_scene: (Scenes::Title), is_loaded: (false) },entities : b_tree, render_list : render_l}
+        Self {scene_data : SceneData { active_scene: (Scenes::Title), is_loaded: (false) }, entities : b_tree, render_list : render_l}
     
     }
 
@@ -137,8 +138,6 @@ impl GameState {
                 }
             }
         }
-
-        text!("TEST");
 
     }
 
